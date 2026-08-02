@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Paradise & Bird Shop - ศูนย์รวมสัตว์เลี้ยงและนกสายพันธุ์พิเศษ</title>
+  <meta name="description" content="ร้านขายสัตว์เลี้ยงและนกแก้วสายพันธุ์พิเศษ สุขภาพดี มีใบรับรอง สั่งซื้อ อุปกรณ์ อาหาร และสอบถามผ่าน LINE ได้ทันที">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div>
+      <i class="fa-solid fa-truck-fast"></i> จัดส่งฟรีทั่วประเทศเมื่อสั่งซื้อครบ 1,500 บาท | บริการส่งด่วนสัตว์เลี้ยงแบบการันตีความปลอดภัย
+    </div>
+    <a href="https://line.me/ti/p/~@birdshop" target="_blank" class="top-bar-line">
+      <i class="fa-brands fa-line"></i> แอด LINE ร้านขายนก: <strong>@birdshop</strong>
+    </a>
+  </div>
+
+  <!-- Header & Navigation Bar -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <!-- Logo -->
+        <a href="#" class="brand-logo" onclick="switchView('home'); return false;">
+          <i class="fa-solid fa-feather-pointed"></i>
+          <div>PetParadise <span>& BirdShop</span></div>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a href="#" class="nav-link active" data-view="home" onclick="switchView('home'); return false;">
+              <i class="fa-solid fa-house"></i> หน้าแรก
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-view="shop" onclick="switchView('shop'); return false;">
+              <i class="fa-solid fa-store"></i> ร้านค้า & สัตว์เลี้ยง
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link bird-link" data-view="birds" onclick="switchView('birds'); return false;">
+              <i class="fa-solid fa-crow"></i> โซนขายนกแก้วพิเศษ
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-view="contact" onclick="switchView('contact'); return false;">
+              <i class="fa-solid fa-headset"></i> ติดต่อเรา & LINE
+            </a>
+          </li>
+        </ul>
+
+        <!-- Right Header Actions -->
+        <div class="header-actions">
+          <button class="theme-toggle-btn" id="theme-toggle-btn" title="เปลี่ยนโหมด สว่าง/มืด" onclick="toggleTheme()">
+            <i class="fa-solid fa-moon" id="theme-icon"></i>
+          </button>
+
+          <button class="cart-icon-btn" onclick="switchView('cart')" title="ดูตะกร้าสินค้า">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cart-count">0</span>
+          </button>
+
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="container">
+
+    <!-- ==================== VIEW 1: HOME PAGE ==================== -->
+    <section id="view-home" class="page-view active">
+      <!-- Hero Banner -->
+      <div class="hero-section">
+        <div class="hero-text-content">
+          <div class="hero-badge">
+            <i class="fa-solid fa-shield-cat"></i> ฟาร์มมาตรฐาน สุขภาพดี 100%
+          </div>
+          <h1 class="hero-title">
+            ต้อนรับสมาชิกใหม่ <br><span>สัตว์เลี้ยง & นกแก้วสวยงาม</span>
+          </h1>
+          <p class="hero-desc">
+            จำหน่ายนกแก้วซันคอนัวร์ ค็อกคาเทล มาคอว์ เลิฟเบิร์ด และอุปกรณ์ครบวงจร พร้อมบริการปรึกษาการเลี้ยงทาง LINE ฟรีตลอด 24 ชม.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="switchView('shop')">
+              <i class="fa-solid fa-paw"></i> ดูสัตว์เลี้ยงทั้งหมด
+            </button>
+            <button class="btn btn-line" onclick="openLineModal('สวัสดีครับ/ค่ะ สนใจสอบถามเรื่องสัตว์เลี้ยงครับ')">
+              <i class="fa-brands fa-line"></i> สอบถามร้านขายนกผ่าน LINE
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-image-wrapper">
+          <img src="assets/melovebirds.jpg" alt="Pet Paradise & Bird Shop Banner">
+          <div class="hero-image-tag">
+            <i class="fa-solid fa-circle-check" style="color: #10b981;"></i>
+            <span>ตรวจสุขภาพ & DNA ก่อนส่งมอบทุกตัว</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Quick Selection -->
+      <div class="section-header">
+        <div class="section-subtitle">Categories</div>
+        <h2 class="section-title">เลือกชมหมวดหมู่สัตว์เลี้ยง</h2>
+      </div>
+
+      <div class="category-pills">
+        <button class="category-btn active" onclick="filterByCategory('all', this)">
+          <i class="fa-solid fa-border-all"></i> ทั้งหมด
+        </button>
+        <button class="category-btn bird-category" onclick="filterByCategory('birds', this)">
+          <i class="fa-solid fa-crow"></i> นกแก้ว & นกสวยงาม
+        </button>
+        <button class="category-btn" onclick="filterByCategory('cats', this)">
+          <i class="fa-solid fa-cat"></i> แมว (Cats)
+        </button>
+        <button class="category-btn" onclick="filterByCategory('dogs', this)">
+          <i class="fa-solid fa-dog"></i> สุนัข (Dogs)
+        </button>
+        <button class="category-btn" onclick="filterByCategory('supplies', this)">
+          <i class="fa-solid fa-box-open"></i> อาหาร & อุปกรณ์
+        </button>
+      </div>
+
+      <!-- Featured Items Section -->
+      <div class="products-grid" id="home-featured-grid">
+        <!-- Javascript populates product cards here -->
+      </div>
+
+      <!-- Customer Reviews Section -->
+      <div style="margin-top: 5rem;">
+        <div class="section-header">
+          <div class="section-subtitle">Testimonials</div>
+          <h2 class="section-title">เสียงตอบรับจากผู้เลี้ยง</h2>
+        </div>
+        <div class="reviews-grid" id="reviews-container">
+          <!-- Javascript populates reviews here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 2: SHOP CATALOG PAGE ==================== -->
+    <section id="view-shop" class="page-view">
+      <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+        <h2 class="section-title">ร้านค้า & รายการสัตว์เลี้ยง</h2>
+        <p class="section-subtitle" style="text-transform: none; font-size: 1rem; color: var(--text-muted);">
+          เลือกชมสัตว์เลี้ยงสุขภาพดี นกแก้ว และอุปกรณ์คุณภาพสูง
+        </p>
+      </div>
+
+      <!-- Search & Filter Bar -->
+      <div class="filter-bar">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="shop-search-input" placeholder="ค้นหาชื่อสายพันธุ์, นกแก้ว, แมว, อุปกรณ์..." oninput="handleSearch()">
+        </div>
+
+        <select class="sort-select" id="shop-sort-select" onchange="handleSortChange()">
+          <option value="default">เรียงตาม: ยอดนิยม</option>
+          <option value="price-low">ราคา: ต่ำสุด - สูงสุด</option>
+          <option value="price-high">ราคา: สูงสุด - ต่ำสุด</option>
+          <option value="rating">คะแนนรีวิวสูงสุด</option>
+        </select>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="shop-products-grid">
+        <!-- Javascript populates product cards here -->
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 3: SPECIAL BIRD ZONE ==================== -->
+    <section id="view-birds" class="page-view">
+      <!-- Special Bird Banner -->
+      <div class="bird-zone-hero">
+        <div>
+          <div class="hero-badge" style="background: rgba(245,158,11,0.2); color: #fbbf24;">
+            <i class="fa-solid fa-crow"></i> Bird Specialty Farm
+          </div>
+          <h2 class="bird-zone-title">ศูนย์รวมนกแก้วสายพันธุ์พิเศษ</h2>
+          <p style="color: #cbd5e1; font-size: 1.05rem; margin-bottom: 1.5rem;">
+            เราเพาะพันธุ์นกแก้วโครงสร้างดี สายพันธุ์แท้ มีใบ DNA รับรองเพศ ตรวจเช็คสุขภาพทุกสัปดาห์ 
+            สามารถสอบถามเพศ รหัสตัว หรือขอคลิปวิดีโอเพิ่มเติมทาง LINE ได้ทันที
+          </p>
+          <button class="btn btn-line" onclick="openLineModal('สวัสดีครับ/ค่ะ สนใจสอบถามเกี่ยวกับนกแก้วใน Bird Zone ครับ')">
+            <i class="fa-brands fa-line"></i> แชทตรงกับผู้เชี่ยวชาญเรื่องนก (LINE: @birdshop)
+          </button>
+        </div>
+
+        <div class="bird-line-card">
+          <i class="fa-brands fa-line" style="font-size: 3.5rem; color: #00c300; margin-bottom: 0.5rem;"></i>
+          <h3 style="margin-bottom: 0.5rem; font-weight: 700;">ร้านขายนก LINE Official</h3>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1rem;">ID: @birdshop</p>
+          <button class="btn btn-outline" style="width: 100%; border-color: rgba(255,255,255,0.3); color: white;" onclick="openLineModal('สอบถามนกแก้วพันธุ์พิเศษ')">
+            <i class="fa-solid fa-qrcode"></i> แสดง QR Code
+          </button>
+        </div>
+      </div>
+
+      <!-- Bird Items Grid -->
+      <div class="section-header">
+        <h2 class="section-title">นกแก้วและนกสวยงามพร้อมย้ายบ้าน</h2>
+      </div>
+      <div class="products-grid" id="bird-zone-grid">
+        <!-- Javascript populates bird cards here -->
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 4: CART & CHECKOUT PAGE ==================== -->
+    <section id="view-cart" class="page-view">
+      <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+        <h2 class="section-title"><i class="fa-solid fa-cart-shopping" style="color: var(--primary);"></i> ตะกร้าสินค้าของคุณ</h2>
+      </div>
+
+      <div id="cart-empty-message" style="display: none; text-align: center; padding: 4rem 1rem;">
+        <i class="fa-solid fa-basket-shopping" style="font-size: 4rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+        <h3 style="margin-bottom: 0.5rem;">ยังไม่มีสินค้าในตะกร้า</h3>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">เลือกชมสัตว์เลี้ยงและอุปกรณ์ที่คุณชื่นชอบเพื่อเพิ่มลงในตะกร้าได้เลย</p>
+        <button class="btn btn-primary" onclick="switchView('shop')">
+          <i class="fa-solid fa-store"></i> ไปที่ร้านค้า
+        </button>
+      </div>
+
+      <div class="cart-layout" id="cart-layout-container">
+        <!-- Left: Cart Items List -->
+        <div class="cart-items-container" id="cart-items-list">
+          <!-- Javascript populates cart item rows here -->
+        </div>
+
+        <!-- Right: Summary & Order Details -->
+        <div class="cart-summary-card">
+          <h3 style="margin-bottom: 1.2rem; font-size: 1.2rem; font-weight: 700;">สรุปคำสั่งซื้อ</h3>
+          
+          <div class="summary-row">
+            <span>ราคาสินค้า</span>
+            <span id="summary-subtotal">฿0</span>
+          </div>
+          <div class="summary-row">
+            <span>ค่าจัดส่ง (ส่งปลอดภัย/การันตี)</span>
+            <span id="summary-shipping">฿150</span>
+          </div>
+
+          <div class="summary-row total">
+            <span>ยอดรวมทั้งสิ้น</span>
+            <span id="summary-total">฿0</span>
+          </div>
+
+          <!-- Quick Checkout Form -->
+          <div style="margin-top: 1.5rem;">
+            <h4 style="font-size: 0.95rem; margin-bottom: 0.8rem; color: var(--text-muted);">ข้อมูลการสั่งซื้อ / รับสินค้า</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.2rem;">
+              <input type="text" id="cust-name" placeholder="ชื่อ-นามสกุล ผู้รับ" style="padding: 0.7rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-main); color: var(--text-main);">
+              <input type="tel" id="cust-phone" placeholder="เบอร์โทรศัพท์ติดต่อ" style="padding: 0.7rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-main); color: var(--text-main);">
+              <textarea id="cust-address" placeholder="ที่อยู่จัดส่งสินค้า" rows="2" style="padding: 0.7rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-main); color: var(--text-main); font-family: inherit;"></textarea>
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%; margin-bottom: 0.8rem;" onclick="processCheckout()">
+              <i class="fa-solid fa-credit-card"></i> ยืนยันการสั่งซื้อ
+            </button>
+
+            <button class="btn btn-line" style="width: 100%;" onclick="sendCartToLine()">
+              <i class="fa-brands fa-line"></i> ส่งรายการให้แอดมินทาง LINE
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 5: CONTACT & LINE PAGE ==================== -->
+    <section id="view-contact" class="page-view">
+      <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+        <h2 class="section-title">ติดต่อเรา & ร้านขายนกผ่าน LINE</h2>
+        <p class="section-subtitle" style="text-transform: none; font-size: 1rem; color: var(--text-muted);">
+          ยินดีให้คำปรึกษาการเลี้ยงนกและสัตว์เลี้ยงตลอด 24 ชั่วโมง
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Information Details -->
+        <div class="contact-info-card">
+          <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 700;">ข้อมูลการติดต่อ</h3>
+          
+          <div class="contact-item line-item">
+            <i class="fa-brands fa-line"></i>
+            <div>
+              <strong style="display: block; font-size: 1.1rem; color: var(--line-color);">LINE Official (ร้านขายนก): @birdshop</strong>
+              <span style="color: var(--text-muted); font-size: 0.9rem;">สอบถามสายพันธุ์นกแก้ว ขอดูคลิปตัวจริง จองนก</span>
+              <div style="margin-top: 0.5rem;">
+                <a href="https://line.me/ti/p/~@birdshop" target="_blank" class="btn btn-line" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">
+                  <i class="fa-brands fa-line"></i> แชท LINE ทันที
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <strong style="display: block;">เบอร์โทรศัพท์</strong>
+              <span>081-234-5678 (ฝ่ายขายและบริการลูกค้า)</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong style="display: block;">อีเมล</strong>
+              <span>contact@petparadise-birdshop.com</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <strong style="display: block;">เวลาทำการ</strong>
+              <span>เปิดบริการทุกวัน: 09:00 - 20:00 น.</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong style="display: block;">หน้าร้าน / ฟาร์ม</strong>
+              <span>99/5 ถนนสุขุมวิท แขวงคลองเตย เขตคลองเตย กรุงเทพมหานคร 10110</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LINE QR Code & Direct Box -->
+        <div class="contact-info-card" style="text-align: center; background: linear-gradient(145deg, var(--bg-card) 0%, var(--primary-light) 100%);">
+          <i class="fa-brands fa-line" style="font-size: 4rem; color: var(--line-color); margin-bottom: 1rem;"></i>
+          <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem;">สแกนแอด LINE ร้านขายนก</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+            รับโปรโมชั่นพิเศษ คำแนะนำการเลี้ยงลูกป้อน และส่วนลดอุปกรณ์นกแก้ว
+          </p>
+
+          <!-- Simulated LINE QR Code UI -->
+          <div style="background: white; border-radius: var(--radius-md); padding: 1.5rem; display: inline-block; box-shadow: var(--shadow-md); margin-bottom: 1.5rem;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://line.me/ti/p/~@birdshop" alt="LINE QR Code ร้านขายนก" style="width: 180px; height: 180px; display: block; margin: 0 auto;">
+            <div style="font-size: 0.85rem; color: #333; font-weight: 700; margin-top: 0.6rem;">LINE ID: @birdshop</div>
+          </div>
+
+          <div>
+            <a href="https://line.me/ti/p/~@birdshop" target="_blank" class="btn btn-line" style="width: 100%;">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> เปิดในแอปพลิเคชัน LINE
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FLOATING LINE BUTTON -->
+  <a href="#" class="floating-line-btn" onclick="openLineModal('สวัสดีครับ/ค่ะ ต้องการสอบถามข้อมูลนกและสัตว์เลี้ยงครับ'); return false;" title="แชทสอบถามผ่าน LINE">
+    <i class="fa-brands fa-line"></i>
+    <span>สอบถามนกผ่าน LINE</span>
+  </a>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. PET DETAIL MODAL -->
+  <div class="modal-overlay" id="modal-pet-detail">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeModal('modal-pet-detail')">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;" id="modal-pet-content">
+        <!-- Javascript populates detail view -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. LINE QR MODAL -->
+  <div class="modal-overlay" id="modal-line-qr">
+    <div class="modal-card" style="max-width: 450px; text-align: center;">
+      <button class="modal-close-btn" onclick="closeModal('modal-line-qr')">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <i class="fa-brands fa-line" style="font-size: 3.5rem; color: var(--line-color); margin-bottom: 0.5rem;"></i>
+      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem;">ติดต่อร้านขายนกผ่าน LINE</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;" id="line-modal-preset-desc">
+        แอด LINE ID: <strong>@birdshop</strong>
+      </p>
+
+      <div style="background: white; border-radius: var(--radius-md); padding: 1.2rem; display: inline-block; box-shadow: var(--shadow-sm); margin-bottom: 1.2rem;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://line.me/ti/p/~@birdshop" alt="LINE QR Code" style="width: 160px; height: 160px;">
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 0.7rem;">
+        <a id="line-direct-btn" href="https://line.me/ti/p/~@birdshop" target="_blank" class="btn btn-line">
+          <i class="fa-brands fa-line"></i> คลิกเพื่อเปิด LINE แชททันที
+        </a>
+        <button class="btn btn-outline" onclick="copyLineId()">
+          <i class="fa-solid fa-copy"></i> คัดลอก LINE ID (@birdshop)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. CHECKOUT SUCCESS MODAL -->
+  <div class="modal-overlay" id="modal-checkout-success">
+    <div class="modal-card" style="max-width: 500px; text-align: center;">
+      <i class="fa-solid fa-circle-check" style="font-size: 4rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">สั่งซื้อสำเร็จแล้ว!</h3>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+        ขอบคุณสำหรับการสั่งซื้อ ทางร้านจะติดต่อกลับเพื่อยืนยันการจัดส่งโดยเร็วที่สุด
+      </p>
+
+      <div style="background: var(--bg-main); padding: 1rem; border-radius: var(--radius-md); text-align: left; font-size: 0.9rem; margin-bottom: 1.5rem;" id="order-summary-box">
+        <!-- Order info summary -->
+      </div>
+
+      <button class="btn btn-primary" style="width: 100%;" onclick="closeModal('modal-checkout-success'); switchView('home');">
+        กลับสู่หน้าหลัก
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast-notification">
+    <i class="fa-solid fa-circle-check" style="color: var(--primary); font-size: 1.2rem;"></i>
+    <span id="toast-message">เพิ่มลงตะกร้าเรียบร้อยแล้ว</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <i class="fa-solid fa-feather-pointed" style="color: var(--primary);"></i> PetParadise & BirdShop
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">
+            ศูนย์รวมสัตว์เลี้ยงและฟาร์มนกแก้วสายพันธุ์พิเศษ รับประกันสุขภาพดี นกเชื่อง น่ารัก บริการปรึกษาการเลี้ยงและอุปกรณ์ครบวงจร
+          </p>
+          <div style="display: flex; gap: 0.8rem; font-size: 1.2rem;">
+            <a href="https://line.me/ti/p/~@birdshop" target="_blank" style="color: #00c300;"><i class="fa-brands fa-line"></i></a>
+            <a href="#" style="color: #1877f2;"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" style="color: #e4405f;"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" style="color: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">ลิงก์ด่วน</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="switchView('home'); return false;">หน้าแรก</a></li>
+            <li><a href="#" onclick="switchView('shop'); return false;">ร้านค้า & สัตว์เลี้ยง</a></li>
+            <li><a href="#" onclick="switchView('birds'); return false;">โซนนกแก้วพิเศษ</a></li>
+            <li><a href="#" onclick="switchView('contact'); return false;">ติดต่อเรา</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">หมวดหมู่สัตว์เลี้ยง</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="switchView('birds'); return false;">นกแก้วซันคอนัวร์ / ค็อกคาเทล</a></li>
+            <li><a href="#" onclick="switchView('shop'); filterByCategory('cats'); return false;">แมวสายพันธุ์แท้</a></li>
+            <li><a href="#" onclick="switchView('shop'); filterByCategory('dogs'); return false;">สุนัขแสนรู้</a></li>
+            <li><a href="#" onclick="switchView('shop'); filterByCategory('supplies'); return false;">กรง & อาหารนก</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">ติดต่อ LINE ร้านขายนก</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 0.8rem;">LINE Official: <strong>@birdshop</strong></p>
+          <button class="btn btn-line" style="width: 100%; font-size: 0.9rem; padding: 0.6rem 1rem;" onclick="openLineModal('สอบถามสั่งซื้อนกแก้ว')">
+            <i class="fa-brands fa-line"></i> แอด LINE สอบถามนก
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Pet Paradise & Bird Shop. All rights reserved. Designed with ❤️ for Pet Lovers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Logic Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
