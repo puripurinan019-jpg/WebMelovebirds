@@ -6,9 +6,9 @@
   --primary-light: #ecfdf5;
   --accent: #f59e0b;
   --accent-hover: #d97706;
-  --line-color: #00c300;
-  --line-hover: #00b300;
-  --line-light: #e6f9e6;
+  --facebook-color: #1877f2;
+  --facebook-hover: #166fe5;
+  --facebook-light: #e7f3ff;
 
   --bg-main: #f8fafc;
   --bg-card: #ffffff;
@@ -109,7 +109,7 @@ img {
   align-items: center;
 }
 
-.top-bar-line {
+.top-bar-facebook {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -120,7 +120,7 @@ img {
   transition: var(--transition);
 }
 
-.top-bar-line:hover {
+.top-bar-facebook:hover {
   background: rgba(255, 255, 255, 0.35);
   transform: scale(1.03);
 }
@@ -335,6 +335,7 @@ body.dark-theme .hero-badge {
 .hero-title span {
   color: var(--primary);
   background: linear-gradient(120deg, #059669, #d97706);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -377,14 +378,14 @@ body.dark-theme .hero-badge {
   box-shadow: 0 6px 20px rgba(5, 150, 105, 0.45);
 }
 
-.btn-line {
-  background-color: var(--line-color);
+.btn-facebook {
+  background-color: var(--facebook-color);
   color: white;
   box-shadow: 0 4px 14px rgba(0, 195, 0, 0.35);
 }
 
-.btn-line:hover {
-  background-color: var(--line-hover);
+.btn-facebook:hover {
+  background-color: var(--facebook-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 195, 0, 0.45);
 }
@@ -656,12 +657,12 @@ body.dark-theme .btn-icon-cart {
   background-color: rgba(5, 150, 105, 0.25);
 }
 
-.btn-icon-line {
-  background-color: var(--line-light);
-  color: var(--line-color);
+.btn-icon-facebook {
+  background-color: var(--facebook-light);
+  color: var(--facebook-color);
 }
-.btn-icon-line:hover {
-  background-color: var(--line-color);
+.btn-icon-facebook:hover {
+  background-color: var(--facebook-color);
   color: white;
 }
 
@@ -699,7 +700,7 @@ body.dark-theme .btn-icon-cart {
   margin-bottom: 0.8rem;
 }
 
-.bird-line-card {
+.bird-facebook-card {
   background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -888,18 +889,18 @@ body.dark-theme .btn-icon-cart {
   flex-shrink: 0;
 }
 
-.contact-item.line-item i {
-  color: var(--line-color);
-  background-color: var(--line-light);
+.contact-item.facebook-item i {
+  color: var(--facebook-color);
+  background-color: var(--facebook-light);
 }
 
-/* FLOATING LINE BUTTON */
-.floating-line-btn {
+/* FLOATING Facebook BUTTON */
+.floating-facebook-btn {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
   z-index: 99;
-  background-color: var(--line-color);
+  background-color: var(--facebook-color);
   color: white;
   padding: 0.8rem 1.4rem;
   border-radius: var(--radius-full);
@@ -912,12 +913,12 @@ body.dark-theme .btn-icon-cart {
   animation: pulse-glow 2s infinite;
 }
 
-.floating-line-btn:hover {
+.floating-facebook-btn:hover {
   transform: translateY(-4px) scale(1.05);
-  background-color: var(--line-hover);
+  background-color: var(--facebook-hover);
 }
 
-.floating-line-btn i {
+.floating-facebook-btn i {
   font-size: 1.5rem;
 }
 
@@ -1137,10 +1138,10 @@ body.dark-theme .btn-icon-cart {
   .footer-grid {
     grid-template-columns: 1fr;
   }
-  .floating-line-btn span {
+  .floating-facebook-btn span {
     display: none;
   }
-  .floating-line-btn {
+  .floating-facebook-btn {
     padding: 0.8rem;
     border-radius: 50%;
   }

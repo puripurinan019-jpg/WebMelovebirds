@@ -91,8 +91,8 @@ function createProductCardHTML(item, isBirdZone = false) {
           </div>
 
           <div class="product-actions">
-            <button class="btn-icon btn-icon-line" onclick="openLineModal('${item.linePresetMsg || 'สอบถามรายละเอียด ' + item.name}')" title="สอบถามผ่าน LINE">
-              <i class="fa-brands fa-line"></i>
+            <button class="btn-icon btn-icon-facebook" onclick="openFacebookModal('${item.facebookPresetMsg || 'สอบถามรายละเอียด ' + item.name}')" title="สอบถามผ่าน Facebook">
+              <i class="fa-brands fa-facebook"></i>
             </button>
             <button class="btn-icon btn-icon-cart" onclick="openPetDetailModal('${item.id}')" title="ดูรายละเอียด">
               <i class="fa-solid fa-eye"></i>
@@ -310,7 +310,7 @@ function renderCart() {
   document.getElementById('summary-total').textContent = `฿${total.toLocaleString()}`;
 }
 
-/* ================= MODAL & LINE INTEGRATION ================= */
+/* ================= MODAL & Facebook INTEGRATION ================= */
 function openPetDetailModal(petId) {
   const product = PET_DATA.find(p => p.id === petId);
   if (!product) return;
@@ -345,8 +345,8 @@ function openPetDetailModal(petId) {
 
       <div style="display: flex; flex-direction: column; gap: 0.8rem;">
         ${isBird ? `
-          <button class="btn btn-line" onclick="openLineModal('${product.linePresetMsg || 'สอบถามรายละเอียด ' + product.name}')">
-            <i class="fa-brands fa-line"></i> สอบถามรายละเอียดนกตัวนี้ผ่าน LINE
+          <button class="btn btn-facebook" onclick="openFacebookModal('${product.facebookPresetMsg || 'สอบถามรายละเอียด ' + product.name}')">
+            <i class="fa-brands fa-facebook"></i> สอบถามรายละเอียดนกตัวนี้ผ่าน Facebook
           </button>
         ` : ''}
         <button class="btn btn-primary" onclick="addToCart('${product.id}'); closeModal('modal-pet-detail');">
@@ -359,15 +359,15 @@ function openPetDetailModal(petId) {
   document.getElementById('modal-pet-detail').classList.add('active');
 }
 
-function openLineModal(presetText) {
-  const lineModal = document.getElementById('modal-line-qr');
-  const directBtn = document.getElementById('line-direct-btn');
-  const desc = document.getElementById('line-modal-preset-desc');
+function openFacebookModal(presetText) {
+  const lineModal = document.getElementById('modal-facebook-qr');
+  const directBtn = document.getElementById('facebook-direct-btn');
+  const desc = document.getElementById('facebook-modal-preset-desc');
 
   const encodedMsg = encodeURIComponent(presetText || 'สวัสดีครับ สนใจสอบถามเกี่ยวกับสัตว์เลี้ยงครับ');
-  const fullLineUrl = `${SHOP_INFO.lineUrl}?text=${encodedMsg}`;
+  const fullFacebookUrl = `${SHOP_INFO.facebookUrl}?text=${encodedMsg}`;
 
-  directBtn.href = fullLineUrl;
+  directBtn.href = fullFacebookUrl;
   desc.innerHTML = `ข้อความที่จะส่ง: <em>"${presetText}"</em>`;
 
   lineModal.classList.add('active');
@@ -378,15 +378,15 @@ function closeModal(modalId) {
   if (modal) modal.classList.remove('active');
 }
 
-function copyLineId() {
-  navigator.clipboard.writeText(SHOP_INFO.lineId).then(() => {
-    showToast(`คัดลอก LINE ID (${SHOP_INFO.lineId}) สำเร็จ!`);
+function copyFacebookId() {
+  navigator.clipboard.writeText(SHOP_INFO.facebookId).then(() => {
+    showToast(`คัดลอก Facebook ID (${SHOP_INFO.facebookId}) สำเร็จ!`);
   }).catch(() => {
-    showToast(`LINE ID: ${SHOP_INFO.lineId}`);
+    showToast(`Facebook ID: ${SHOP_INFO.facebookId}`);
   });
 }
 
-function sendCartToLine() {
+function sendCartToFacebook() {
   if (cart.length === 0) {
     showToast('ไม่มีสินค้าในตะกร้า');
     return;
@@ -399,7 +399,7 @@ function sendCartToLine() {
   const total = cart.reduce((s, i) => s + (i.price * i.qty), 0) + 150;
   text += `\nราคารวมสุทธิ (รวมส่ง): ฿${total.toLocaleString()}\nขอรายละเอียดการชำระเงินด้วยครับ`;
 
-  openLineModal(text);
+  openFacebookModal(text);
 }
 
 function processCheckout() {
