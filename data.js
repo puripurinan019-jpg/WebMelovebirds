@@ -320,7 +320,7 @@ const SHOP_INFO = {
   name: "Pet Paradise & Bird Shop",
   tagline: "ศูนย์รวมสัตว์เลี้ยงน่ารัก & นกแก้วสายพันธุ์พิเศษ สุขภาพดี 100%",
   facebookId: "Me Love Bird's",
-  facebookUrl: "https://facebook.com/ti/p/~Me Love Bird's",
+  facebookUrl: "https://www.facebook.com/share/19AFPVQYhd/?mibextid=wwXIfr",
   phone: "081-234-5678",
   email: "contact@petparadise-birdshop.com",
   address: "99/5 ถนนสุขุมวิท แขวงคลองเตย เขตคลองเตย กรุงเทพมหานคร 10110",
